@@ -99,6 +99,10 @@ class Config {
     }
 
     func getDelay(keyCode: CGKeyCode, modifierFlags: NSEvent.ModifierFlags) -> Int? {
+        if keyCode == 51 {
+            return 0
+        }
+        
         logger.debug("key code: \(keyCode) modifiers: \(modifierMap.filter { modifierFlags.contains($0.value) }.keys)")
         if let conditionalDelay = self.delayDict[keyCode] {
             logger.debug("condition: \(conditionalDelay)")

@@ -98,7 +98,7 @@ class KeyChanger {
 
             if keyboardId != SYNTHETIC_KB_ID && currentKeyCode == self.lastKeyCode && !(nsEvent.isARepeat) {
                 if let debounceDelay = self.config.getDelay(keyCode: currentKeyCode, modifierFlags: nsEvent.modifierFlags) {
-                    logger.debug("delay: \(debounceDelay) ? \(currentKeyTime) - \(self.lastKeyTime)")
+                    logger.debug("delay: \(debounceDelay) ? \(currentKeyTime) - \(self.lastKeyTime) = \(currentKeyTime - self.lastKeyTime)")
                     if (currentKeyTime - self.lastKeyTime) < debounceDelay {
 
                         logger.info("BOUNCE detected!!!  Character: '" + (nsEvent.characters ?? "") + "'")
